@@ -3,13 +3,13 @@ import jinja2
 import json
 from flask import Flask, request, redirect, render_template, url_for, session, flash, abort, current_app
 from flask_oauthlib.client import OAuth, OAuthException
-from localgov import app, oauth
+from localgov import app, oauth, forms
 
 registry = oauth.remote_app(
     'registry',
     consumer_key=app.config['REGISTRY_CONSUMER_KEY'],
     consumer_secret=app.config['REGISTRY_CONSUMER_SECRET'],
-    request_token_params={'scope': 'person:view licence:view licence:add'},
+    request_token_params={'scope': 'vehicle:view address:view'},
     base_url=app.config['REGISTRY_BASE_URL'],
     request_token_url=None,
     access_token_method='POST',
@@ -17,10 +17,27 @@ registry = oauth.remote_app(
     authorize_url='%s/oauth/authorize' % app.config['REGISTRY_BASE_URL']
 )
 
+#auth helper
+@registry.tokengetter
+def get_registry_oauth_token():
+    return session.get('registry_token')
+
 #views
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route("/parking-permit")
+def parking_permit_start():
+    session.clear()
+    return render_template('parking-permit-start.html')
+
+@app.route("/parking-permit/information")
+def parking_permit_information():
+    if not session.get('registry_token', False):
+        session['resume_url'] = 'parking_permit_information'
+        return redirect(url_for('verify'))
+    return render_template('parking-permit-information.html')
 
 @app.route('/verify')
 def verify():
@@ -28,7 +45,6 @@ def verify():
 
 @app.route('/verified')
 def verified():
-
     resp = registry.authorized_response()
 
     if resp is None or isinstance(resp, OAuthException):
@@ -38,5 +54,8 @@ def verified():
         )
 
     session['registry_token'] = (resp['access_token'], '')
-    return redirect(url_for('index'))
+    if session.get('resume_url'):
+        return redirect(url_for(session.get('resume_url')))
+    else:
+        return redirect(url_for('index'))
 

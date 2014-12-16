@@ -1,0 +1,10 @@
+.header {
+  margin-bottom:1rem;
+}
+.header, .top-bar, .button, .button:hover {
+  background:#7a71ae;
+}
+
+.top-bar .name h1 a  {
+  font-weight:bold;
+}

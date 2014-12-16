@@ -3,5 +3,5 @@ export APP_ROOT='.'
 export SECRET_KEY='local-dev-not-secret'
 export CSRF_ENABLED=True
 export SECURITY_PASSWORD_HASH='bcrypt'
-export BASE_URL='http://local.gov.local'
+export BASE_URL='http://localgov.gov.local'
 export REGISTRY_BASE_URL='http://registry.gov.local'

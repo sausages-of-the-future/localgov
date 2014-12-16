@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}LocalGov{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Your details</h2>
+      <ul>
+        <li>
+          Your address has been verified as <strong>7 Fulton Street</strong> in
+          parking zone <strong>Central Zone Q</strong>
+        </li>
+        <li>
+          Car registration <strong>MA25 CMR</strong>
+        </li>
+        <li>
+        CO2 emissions are <strong>less than 100g/km</strong>
+        </li>
+      </ul>
+      <a href="{{url_for('parking_permit_information')}}" class="button expand">Pay</a>
+   </div>
+  </div>
+{% endblock %}

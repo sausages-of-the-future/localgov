@@ -1,8 +1,11 @@
 {% extends "base.html" %}
-{% block title %}LocalGov{% endblock%}
+{% block title %}LocalGov{% endblock %}
 {% block content %}
   <div class="row">
     <div class="small-12 columns">
+      <ul>
+        <li><a href="{{url_for('parking_permit_start')}}">Get a parking permit</a></li>
+      </ul>
    </div>
   </div>
 {% endblock %}

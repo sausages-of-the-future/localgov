@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from fishing import app
+from localgov import app
 import os
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = 'true'
