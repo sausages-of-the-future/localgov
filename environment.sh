@@ -5,3 +5,4 @@ export CSRF_ENABLED=True
 export SECURITY_PASSWORD_HASH='bcrypt'
 export BASE_URL='http://localgov.gov.local'
 export REGISTRY_BASE_URL='http://registry.gov.local'
+export PAYMENT_BASE_URL='http://payment.gov.local'
