@@ -39,6 +39,12 @@ def parking_permit_information():
         return redirect(url_for('verify'))
     return render_template('parking-permit-information.html')
 
+@app.route("/parking-permit/done")
+def parking_permit_done():
+    session.clear()
+    return render_template('parking-permit-done.html')
+
+
 @app.route('/verify')
 def verify():
     _scheme = 'https'

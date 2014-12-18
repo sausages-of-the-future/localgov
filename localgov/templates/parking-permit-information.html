@@ -16,7 +16,17 @@
         CO2 emissions are <strong>less than 100g/km</strong>
         </li>
       </ul>
-      <a href="{{url_for('parking_permit_information')}}" class="button expand">Pay</a>
+      <p>
+        The cost of your permit will be <strong>&pound;120</strong> for a year.
+      </p>
+      <form method="post" action="http://payment.gov.local/start">
+        <input type="hidden" name="total" value="120" />
+        <input type="hidden" name="description" value="Parking permit - Central Zone Q" />
+        <input type="hidden" name="service" value="Example local authority" />
+        <input type="hidden" name="email" value="" />
+        <input type="hidden" name="return_uri" value="{{config['BASE_URL']}}{{url_for('parking_permit_done')}}"/>
+        <button type="submit" class="button expand">Pay</button>
+      </form>
    </div>
   </div>
 {% endblock %}
