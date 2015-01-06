@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{url_for('static', filename='images/icon.png')}}" />
 
-    <title>{% block title %}{% endblock%} | Local Authority</title>
+    <title>{% block title %}{% endblock%} | Borchester City Council</title>
     <link rel="stylesheet" href="{{url_for('static', filename= 'vendor/roboto-slab-fontface/roboto-slab-fontface.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='vendor/foundation/css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/fontawesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     <script type="text/javascript" src="{{ url_for('static', filename='vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='vendor/modernizr/modernizr.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='vendor/foundation/js/foundation.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='vendor/foundation/js/foundation/foundation.alert.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='javascript/main.js') }}"></script>
@@ -19,7 +21,8 @@
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
-          <h1><a href="/">Local Authority</a></h1>
+          <h1><a href="/"><i class="fa fa-shield"></i>
+ Borchester City Council</a></h1>
           </li>
         </ul>
       </nav>

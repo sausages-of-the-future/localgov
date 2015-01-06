@@ -1,10 +1,28 @@
 .header {
-  margin-bottom:1rem;
+  margin-bottom:0rem;
 }
+
 .header, .top-bar, .button, .button:hover {
   background:#7a71ae;
 }
 
 .top-bar .name h1 a  {
   font-weight:bold;
+}
+
+.top-bar .fa {
+  margin-right:3px;
+}
+
+.orbit-caption a {
+    color:#fff;
+}
+
+.orbit-attribution {
+    display:block;
+    font-size:0.6rem;
+    text-align:right;
+    position: absolute;
+    top: -18px;
+    right: 6px;
 }
