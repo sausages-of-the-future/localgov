@@ -23,7 +23,7 @@
                 <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Edinburgh_tram_at_Gogar_Tram_Depot.JPG?uselang=en-gb">Kim Traynor</a></span>
             </div>
         </li> 
-        <li> 
+        <li>
             <img src="{{url_for('static', filename="images/townhall.jpg")}}" alt="slide 2" />
             <div class="orbit-caption">
                 City status for Borchester
@@ -34,17 +34,48 @@
 
   <div class="row">
     <div class="small-12 columns">
-      <ul>
-        <li><a href="{{url_for('parking_permit_start')}}">Get a parking permit</a></li>
-        <li><a href="#">Apply for planning permission</a></li>
-      </ul>
       <h3>Popular services</h3>
+      <ul class="services small-block-grid-2">
+        <li>
+          <a href="{{url_for('parking_permit_start')}}">
+            <i class="fa fa-car fa-2x"></i>
+            Get a parking permit
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-building fa-2x"></i>
+            Apply for planning permission
+          </a>
+        </li>
+        <li>
+          <a href="{{url_for('parking_permit_start')}}">
+            <i class="fa fa-bullhorn fa-2x"></i>
+            Report noise
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-home fa-2x"></i>
+            Find housing
+          </a>
+        </li>
+      </ul>
+      <ul class="side-nav">
+        <li>
+          <a href="#">
+            Browse all services
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Services near by
+          </a>
+        </li>
+      </ul>
+      <h3>Recent notices</h3>
 
-      <h3>Notices</h3>
-
-      <h3>Meetings and votes</h3>
-
-      <h3>Near by</h3>
+      <h3>Recent votes and debates</h3>
 
    </div>
   </div>
