@@ -25,7 +25,7 @@ def get_registry_oauth_token():
 #views
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('index.html', fullscreen=True)
 
 @app.route("/parking-permit")
 def parking_permit_start():

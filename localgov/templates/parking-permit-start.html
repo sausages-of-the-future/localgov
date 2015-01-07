@@ -1,20 +1,23 @@
 {% extends "base.html" %}
-{% block title %}LocalGov{% endblock %}
+{% block title %}Parking permits{% endblock %}
 {% block content %}
   <div class="row">
     <div class="small-12 columns">
-      <h2>Get a parking permit</h2>
-      <p>
-        Our resident parking permits allow you to park in resident bays 
-        and resident shared use bays in the CPZ
-        in which you live:
-      </p>
-      <ul>
-        <li>each permit is vehicle specific and cannot be used on any other vehicle</li>
-        <li>permits are restricted to one permit per vehicle</li>
-        <li>the cost of a parking permit depends on the emissions the vehicle produces</li>
-      </ul>
-      <a href="{{url_for('parking_permit_information')}}" class="button expand">Get started &raquo;</a>
+      <div class="panel">
+        <h3>Parking permits</h3>
+        <p>
+          Resident parking permits allow you to park in resident bays 
+          and resident shared use bays in the <a href="#">Controlled Parking Zone</a>
+          in which you live:
+        </p>
+        <ul>
+          <li>each permit is vehicle specific and cannot be used on any other vehicle</li>
+          <li>permits are restricted to one permit per vehicle</li>
+          <li>the cost of a parking permit depends on the emissions the vehicle produces</li>
+        </ul>
+        <a href="{{url_for('parking_permit_information')}}" class="button expand">Get started <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
    </div>
   </div>
 {% endblock %}
