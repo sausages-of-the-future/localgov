@@ -1,6 +1,8 @@
 import os
 import jinja2
 import json
+import requests
+
 from flask import Flask, request, redirect, render_template, url_for, session, flash, abort, current_app
 from flask_oauthlib.client import OAuth, OAuthException
 from localgov import app, oauth, forms
@@ -68,4 +70,13 @@ def verified():
         return redirect(url_for(session.get('resume_url')))
     else:
         return redirect(url_for('index'))
+
+
+@app.route("/notices")
+def notices():
+    # go via request for notices rather than registry as they're totally
+    # public i think?
+    # also should filter for notices issued by this council
+    notices = requests.get('%s/notices' % current_app.config['REGISTRY_BASE_URL']).json()
+    return render_template('notices.html', notices=notices)
 

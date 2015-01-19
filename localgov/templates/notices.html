@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Complete{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="panel">
+        <h3>Notices</h3>
+        {% for notice in notices %}
+            <div class="panel">
+                {% for key, val in notice.items() %}
+                    <p>{{key}} : {{val}}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+      </div>
+   </div>
+  </div>
+{% endblock %}
