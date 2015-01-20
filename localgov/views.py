@@ -27,7 +27,8 @@ def get_registry_oauth_token():
 #views
 @app.route("/")
 def index():
-    return render_template('index.html', fullscreen=True)
+    notices = _get_notices()
+    return render_template('index.html', fullscreen=True, notices=notices)
 
 @app.route("/parking-permit")
 def parking_permit_start():
@@ -77,10 +78,15 @@ def notices():
     # go via request for notices rather than registry as they're totally
     # public i think?
     # also should filter for notices issued by this council
+    notices = _get_notices()
+    return render_template('notices.html', notices=notices)
+
+
+
+def _get_notices():
+    notices = []
     response = requests.get('%s/notices' % current_app.config['REGISTRY_BASE_URL'])
     if response.status_code == 200:
         notices = response.json()
-    else:
-        notices = []
-    return render_template('notices.html', notices=notices)
+    return notices
 

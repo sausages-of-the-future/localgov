@@ -3,33 +3,33 @@
 {% block content %}
     <ul class="example-orbit" data-orbit>
         <li>
-            <img src="{{url_for('static', filename="images/country.jpg")}}" alt="slide 2" /> 
+            <img src="{{url_for('static', filename="images/country.jpg")}}" alt="slide 2" />
             <div class="orbit-caption">
                 <a href="">Country Show dates announced</a>
                 <span class="orbit-attribution">(cc) <a href="https://www.flickr.com/photos/katcha/9333479763"> Katie Sadler</a></span>
             </div>
         </li>
-        <li class="active"> 
-            <img src="{{url_for('static', filename="images/parking.jpg")}}" alt="slide 2" /> 
+        <li class="active">
+            <img src="{{url_for('static', filename="images/parking.jpg")}}" alt="slide 2" />
             <div class="orbit-caption">
                 <a href="">Local vote - new parking zones in operation</a>
                 <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Trafic_warden_camden.jpg">Salim Fadhley</a></span>
             </div>
         </li>
         <li>
-            <img src="{{url_for('static', filename="images/tram.jpg")}}" alt="slide 2" /> 
+            <img src="{{url_for('static', filename="images/tram.jpg")}}" alt="slide 2" />
             <div class="orbit-caption">
                 Tram extension - 200 job opportunities
                 <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Edinburgh_tram_at_Gogar_Tram_Depot.JPG?uselang=en-gb">Kim Traynor</a></span>
             </div>
-        </li> 
+        </li>
         <li>
             <img src="{{url_for('static', filename="images/townhall.jpg")}}" alt="slide 2" />
             <div class="orbit-caption">
                 City status for Borchester
                 <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Hull%27s_Guildhall_-_geograph.org.uk_-_1758569.jpg">Andy Beecroft</a></span>
-            </div> 
-        </li> 
+            </div>
+        </li>
     </ul>
 
   <div class="row">
@@ -74,6 +74,13 @@
         </li>
       </ul>
       <h3>Recent notices</h3>
+      <ul>
+        {% for notice in notices %}
+          {% if loop.index < 4 %}
+            <li><a href="/notices">{{notice.title}} at {{ notice.detail }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
 
       <h3>Recent votes and debates</h3>
 

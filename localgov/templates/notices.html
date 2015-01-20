@@ -7,11 +7,10 @@
         <h3>Notices</h3>
         {% for notice in notices %}
             <div class="panel">
-                <h4>Application for</h4>
-                <p>{{notice.title}}</p>
+                <h4>Application for {{notice.title}}</h4>
                 <p>Licenced address: {{ notice.detail }}</p>
                 <p>Subject of application: {{ notice.subject_name }}</p>
-                <p><a href="{{ notice.subject_uri }}">Subject</a>
+                <p><a href="{{ notice.subject_uri }}">View source</a>
             </div>
         {% endfor %}
       </div>
