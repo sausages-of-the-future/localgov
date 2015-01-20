@@ -7,9 +7,11 @@
         <h3>Notices</h3>
         {% for notice in notices %}
             <div class="panel">
-                {% for key, val in notice.items() %}
-                    <p>{{key}} : {{val}}</p>
-                {% endfor %}
+                <h4>Licence Application</h4>
+                <p>{{notice.title}}</p>
+                <p>Subject of application: {{ notice.subject_name }}</p>
+                <p>licenced address:{{ notice.detail }}</p>
+                <p><a href="{{ notice.subject_uri }}">Subject</a>
             </div>
         {% endfor %}
       </div>
