@@ -27,7 +27,7 @@ def get_registry_oauth_token():
 #views
 @app.route("/")
 def index():
-    notices = _get_notices()
+    notices = _get_notices(max=3)
     return render_template('index.html', fullscreen=True, notices=notices)
 
 @app.route("/parking-permit")
@@ -83,9 +83,13 @@ def notices():
 
 
 
-def _get_notices():
+def _get_notices(max=None):
     notices = []
-    response = requests.get('%s/notices' % current_app.config['REGISTRY_BASE_URL'])
+    url = '%s/notices' % current_app.config['REGISTRY_BASE_URL']
+    if max:
+        url = "%s?max=%d" % (url, max)
+
+    response = requests.get(url)
     if response.status_code == 200:
         notices = response.json()
     return notices

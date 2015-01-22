@@ -76,9 +76,7 @@
       <h3>Recent notices</h3>
       <ul>
         {% for notice in notices %}
-          {% if loop.index < 4 %}
-            <li><a href="/notices">{{notice.title}} at {{ notice.detail }}</a></li>
-          {% endif %}
+          <li><a href="/notices">{{notice.title}} at {{ notice.detail }}</a></li>
         {% endfor %}
       </ul>
 
