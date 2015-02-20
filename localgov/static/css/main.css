@@ -10,8 +10,12 @@ div.wrapper.fullscreen {
   padding-top:0;
 }
 
-.header, .top-bar, .button, .button:hover {
+.header, .top-bar, .button, .button:hover, .top-bar.expanded .title-area {
   background:#7a71ae;
+}
+
+.top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+  background:none;
 }
 
 .top-bar .name h1 a  {
@@ -90,4 +94,8 @@ h3 {
 .panel h4 {
   line-height:1.5rem;
   font-weight:bold;
+}
+
+#news {
+  padding:0;
 }
